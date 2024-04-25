@@ -9,10 +9,11 @@ import Image from "next/image";
 
 export default function Navbar() {
   return (
-    <header className="supports-backdrop-blur:bg-background/60 sticky top-0 z-40 w-full bg-background/95 backdrop-blur">
+    <header className="supports-backdrop-blur:bg-background/60 sticky top-0 z-40 w-full  backdrop-blur">
       <div className="container flex h-14 items-center">
         <div className="mr-4 hidden md:flex">
           <div className="mr-6 flex items-center space-x-2">
+            
           <Image
             src='/logo.png'
             width="24"
@@ -24,7 +25,9 @@ export default function Navbar() {
                   Bookmarks 
                 </span>
           </div>
+        
         </div>
+        
         <button
           className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:text-accent-foreground h-10 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
           type="button"
@@ -40,8 +43,14 @@ export default function Navbar() {
             alt='logo'
           >
           </Image>
-          <span className="sr-only">Toggle Menu</span>
         </button>
+        <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+              ⭐️  <a href="https://github.com/ninadvyas/Bookmarks" className="font-semibold text-indigo-600"><span className="absolute inset-0" aria-hidden="true"></span>Github <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        <div className="relative ml-2 rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+               Coming Soon! 
+            </div>
+       
         <div className="flex flex-1 items-center justify-between space-x-2 sm:space-x-4 md:justify-end">
           <nav className="flex items-center space-x-1">
             <a
@@ -79,7 +88,7 @@ export default function Navbar() {
                 >
                   <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                 </svg>
-                <span className="sr-only">Twitter</span>
+
               </div>
             </a>
             
