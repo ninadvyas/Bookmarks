@@ -147,11 +147,11 @@ const Home: React.FC = () => {
           <div className="sticky z-50 pb-4 top-14 supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur">
             <div className="flex justify-between mb-4">
               <Select>
-                {/* <SelectTrigger className="w-[300px]">
+                <SelectTrigger className="w-[300px]">
                   <SelectValue
                     placeholder="Category"
                   />
-                </SelectTrigger> */}
+                </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="All">All</SelectItem>
                 </SelectContent>

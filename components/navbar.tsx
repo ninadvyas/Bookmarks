@@ -1,11 +1,6 @@
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
-import { Library } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignOutButton, UserButton, useUser } from "@clerk/nextjs";
 
 export default function Navbar() {
   return (
@@ -27,7 +22,6 @@ export default function Navbar() {
           </div>
         
         </div>
-        
         <button
           className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-ring disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:text-accent-foreground h-10 py-2 mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
           type="button"
@@ -45,14 +39,10 @@ export default function Navbar() {
           </Image>
         </button>
         <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-              ⭐️  <a href="https://github.com/ninadvyas/Bookmarks" className="font-semibold text-indigo-600"><span className="absolute inset-0" aria-hidden="true"></span>Github <span aria-hidden="true">&rarr;</span></a>
+              ⭐️  <a href="https://github.com/ninadvyas/Bookmarks" className="font-semibold text-indigo-600">Github </a>
             </div>
-        <div className="relative ml-2 rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-               Coming Soon! 
-            </div>
-       
-        <div className="flex flex-1 items-center justify-between space-x-2 sm:space-x-4 md:justify-end">
-          <nav className="flex items-center space-x-1">
+            {/* <nav className="flex items-center ml-1 space-x-1">
+         
             <a
               target="_blank"
               rel="noreferrer"
@@ -91,8 +81,25 @@ export default function Navbar() {
 
               </div>
             </a>
-            
-          </nav>
+          </nav> */}
+            <SignedIn>
+
+        <div className="relative ml-2 rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+              <Link href='/dashboard'><span className="absolute inset-0" aria-hidden="true"></span>Dashboard <span aria-hidden="true">&rarr;</span></Link>
+        </div>
+        </SignedIn>
+
+        <div className="flex flex-1 items-center justify-between space-x-2 sm:space-x-4 md:justify-end ">
+        {/* <div className="relative ml-2 rounded-xl px-3 py-1 text-sm  text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20"> */}
+            <div >
+            <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+        {/* </div> */}
+        </div>
         </div>
       </div>
     </header>
