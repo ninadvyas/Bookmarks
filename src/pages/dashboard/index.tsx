@@ -53,15 +53,14 @@ const Home: React.FC = () => {
   const fetchUrlData = async (url: string) => {
     try {
       const response = await fetch(
-        `
-        //api
-        =${encodeURIComponent(
+        `https://bookmarks-backend-3t0n.onrender.com/api/fetch-metadata?url=${encodeURIComponent(
           url
         )}`
       );
+
       const data = await response.json();
       console.log("URL data:", data);
-      return { title: data.title, faviconUrl: data.image, category: "default" };
+      return { title: data.title, faviconUrl: data.faviconUrl, category: "default" };
     } catch (error) {
       console.error("Error fetching URL data:", error);
       return { title: "", faviconUrl: "", category: "default" };
@@ -138,7 +137,7 @@ const Home: React.FC = () => {
         (textItem.title && textItem.title.toLowerCase().includes(searchText.toLowerCase())))
     );
   });
-  
+
 
   return (
     <div className="bg-white ">
@@ -154,6 +153,11 @@ const Home: React.FC = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="All">All</SelectItem>
+                  <SelectItem value="Tech">Tech</SelectItem>
+                  <SelectItem value="max">Max</SelectItem>
+                  <SelectItem value="Data">Data</SelectItem>
+                  <SelectItem value="Entertainment">Entertainment</SelectItem>
+
                 </SelectContent>
               </Select>
               <Input
@@ -231,9 +235,9 @@ const Home: React.FC = () => {
         <div className="flex items-center gap-x-4">
           <div className="hidden sm:flex sm:flex-col sm:items-end">
             <div className="flex space-x-2">
-              {/* <Badge variant="default">
+              <Badge variant="default">
                 {isValidUrl(textItem.text) ? "Link" : "Other"}
-              </Badge> */}
+              </Badge>
               <Badge variant="outline">Category</Badge>
             </div>
 
