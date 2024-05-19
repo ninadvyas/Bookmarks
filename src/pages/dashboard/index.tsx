@@ -1,6 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { motion } from "framer-motion";
-import Navbar from "@/components/navbar";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -13,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Plus, Trash2 } from "lucide-react";
+import Navbar from '../../../components/navbar';
 
 interface TextItem {
   text: string;
@@ -141,6 +141,8 @@ const Home: React.FC = () => {
 
   return (
     <div className="bg-white ">
+      <Navbar />
+
       <div className="relative px-6 isolate pt-14 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <div className="sticky z-50 pb-4 top-14 supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur">
